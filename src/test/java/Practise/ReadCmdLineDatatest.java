@@ -14,3 +14,6 @@ public class ReadCmdLineDatatest {
 		System.out.println(pas);
 	}
 }
+
+
+  
