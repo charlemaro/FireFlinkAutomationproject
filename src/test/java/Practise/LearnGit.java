@@ -6,7 +6,7 @@ public class LearnGit {
 	@Test
 	public void SampleGitTest(){
 		System.out.println("Hello developer");
-		System.out.println("hello automation developer");
+		System.out.println("i have changed it now");
 	}
 
 }
