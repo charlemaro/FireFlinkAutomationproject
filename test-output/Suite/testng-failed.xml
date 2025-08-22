@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="tests" name="chrome(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="praciceTestNg.CreateLeadPageTest">
+        <methods>
+          <include name="bsConfig"/>
+          <include name="asConfig"/>
+          <include name="bcConfig"/>
+          <include name="tc_002_creatLeadTest"/>
+          <include name="amConfig"/>
+          <include name="bmConfig"/>
+          <include name="acConfig"/>
+        </methods>
+      </class> <!-- praciceTestNg.CreateLeadPageTest -->
+    </classes>
+  </test> <!-- chrome(failed) -->
+  <test thread-count="2" parallel="tests" name="edge(failed)">
+    <parameter name="browser" value="edge"/>
+    <classes>
+      <class name="praciceTestNg.CreateCampaignTest">
+        <methods>
+          <include name="bsConfig"/>
+          <include name="asConfig"/>
+          <include name="bcConfig"/>
+          <include name="amConfig"/>
+          <include name="bmConfig"/>
+          <include name="tc_001_createCampaignTest"/>
+          <include name="acConfig"/>
+        </methods>
+      </class> <!-- praciceTestNg.CreateCampaignTest -->
+    </classes>
+  </test> <!-- edge(failed) -->
+</suite> <!-- Failed suite [Suite] -->
