@@ -2,6 +2,10 @@ package utility;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.Duration;
 import java.util.Set;
 
@@ -20,6 +24,8 @@ import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.mysql.cj.jdbc.Driver;
 
 /**
  * Contains generic methods related to WebDriver
@@ -318,6 +324,31 @@ public class WebDriverUtility {
 	    return dst.getAbsolutePath();//for extend report
 	}
 	
+	//=================================DataBase===========================================================================================
+	/**
+	 * get the connection
+	 * @return
+	 * @throws SQLException
+	 */
+	public Connection getDatabaseConnection() throws SQLException {
+		Driver driver=new Driver();
+		DriverManager.registerDriver(driver);
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/work\",\"root\",\"charle");
+	}
+	
+	public void closeDatabaseConnection(Connection con) throws SQLException {
+		con.close();
+	}
+	
+	public void fetchDataFromDB(Connection con) throws SQLException {
+		Statement statement=con.createStatement();
+		statement.executeQuery("Select * from work");
+	}
+	
+	public void writeDataToDB() throws SQLException {
+		Statement statement=getDatabaseConnection().createStatement();
+		statement.executeUpdate("insert into user_details values(101,'charle89','charle','maro','Male','3acsdalfkjklnlkfnelks;vnleknjs',1);");
+	}
 	
 	
 			
