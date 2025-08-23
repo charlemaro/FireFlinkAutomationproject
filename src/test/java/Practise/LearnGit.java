@@ -7,6 +7,7 @@ public class LearnGit {
 	public void SampleGitTest(){
 		System.out.println("Hello developer");
 		System.out.println("i have changed it now");
+		System.out.println("i have changed it for POLL SCM");
 	}
 
 }
