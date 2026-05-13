@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.time.Duration;
 import java.util.Set;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.math3.exception.NullArgumentException;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.OutputType;
@@ -41,20 +42,26 @@ public class WebDriverUtility {
 	 * void return
 	 *
 	 */
-	
+
 	public WebDriver getBrowser(String browser) {
-		switch(browser) {
-		case "Chrome":
-			return new ChromeDriver();
-		case "Edge":
-			return new EdgeDriver();	
-			
-		case "FireFox":
-			return new FirefoxDriver();	
-		default:
-			throw new NullPointerException();
+
+		switch(browser.toLowerCase()) {
+
+			case "chrome":
+				WebDriverManager.chromedriver().setup();
+				return new ChromeDriver();
+
+			case "edge":
+				WebDriverManager.edgedriver().setup();
+				return new EdgeDriver();
+
+			case "firefox":
+				WebDriverManager.firefoxdriver().setup();
+				return new FirefoxDriver();
+
+			default:
+				throw new RuntimeException("Invalid browser: " + browser);
 		}
-		
 	}
 	/**
 	 * 
